@@ -49,6 +49,51 @@ a{
     }
 }
 
+.main-title{
+    margin: 0 auto 80px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+    transition: 0.4s;
+}
+
+.main-title::before,
+.main-title::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--maincolor);
+    border-radius: 50%;
+    font-size: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-title:hover{
+    border-color: white;
+    color: white;
+    transition-delay: 0.4s;
+}
+
+.main-title:hover::before{
+    z-index: -1;
+    animation: left-move 0.5s linear forwards;
+}
+.main-title:hover::after{
+    z-index: -1;
+    animation: right-move 0.5s linear forwards;
+}
+
+.main-title::before{
+    left:-30px;
+}
+.main-title::after{
+    right:-30px;
+}
+
 /* ! END Global Rules */
 
 /* ! START HEADER */
@@ -175,8 +220,6 @@ header .mega-menu .links{
     flex: 1;
 }
 
-
-
 header .mega-menu .links li{
     position: relative;
 }
@@ -268,20 +311,6 @@ header .container .mega-menu .image img{
     animation: up-and-down 5s linear infinite;
 }
 
-/* ! ANIMATION */
-
-@keyframes up-and-down{
-    0%,
-    100%{
-        top:0;
-    }
-    50%{
-        top:-50px
-    }
-}
-
-/* ! ANIMATION */
-
 @media (max-width:991px){
     .landing img{
         display: none;
@@ -337,6 +366,113 @@ header .container .mega-menu .image img{
     animation: bouncing 1.5s linear infinite;
 }
 
+
+/* ! END LANDING  */
+
+/* ! START ARTICLES */
+
+.articles{
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    position: relative;
+}
+
+.articles .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 40px;
+}
+
+.articles .card{
+    background-color: white;
+    box-shadow: 0 2px 15px rgb(0 0 0 /10%);
+    border-radius: 8px;
+    transition: 0.4s;
+}
+
+.articles .card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 2px 15px rgb(0 0 0 /20%);
+}
+
+.articles .card:hover i{
+    animation: arrow 0.6s linear infinite;
+}
+
+.articles .image img{
+    max-width: 100%;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+
+.articles .container .info{
+    padding: 20px;
+}
+
+.articles .container .info h3{
+    margin: 0;
+}
+
+.articles .container .info p{
+    margin: 10px 0 0;
+    line-height: 1.8;
+    color: #777;
+}
+
+.articles .container .read-more{
+    border-top: 1px solid #ddd;
+    padding: 20px;
+    color: var(--maincolor);
+    display: flex;
+    justify-content: space-between;
+}
+
+.articles .container .read-more a{
+    color: var(--maincolor);
+    font-weight: bold;
+}
+
+.articles .container .read-more i{
+    font-size: 12px;
+    transition: 0.4s;
+    font-weight: bold;
+}
+
+
+/* ! END ARTICLES */
+
+/* todo START animation */
+
+/* ? MAIN_TITLE */
+@keyframes left-move{
+    50%{
+        left: 0;
+        width: 12px;
+        height: 12px;
+    }
+    100%{
+        left: 0;
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+@keyframes right-move{
+    50%{
+        right: 0;
+        width: 12px;
+        height: 12px;
+    }
+    100%{
+        right: 0;
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+/* ? MAIN_TITLE */
+
+/* ? landing */
 @keyframes bouncing{
     0%,
     20%,
@@ -351,4 +487,26 @@ header .container .mega-menu .image img{
         transform: translateY(-15px);
     }
 }
-/* ! END LANDING  */
+
+@keyframes up-and-down{
+    0%,
+    100%{
+        top:0;
+    }
+    50%{
+        top:-50px
+    }
+}
+/* ? landing */
+
+/* ? ARTICLES */
+
+@keyframes arrow{
+    100%{
+        transform: translateX(10px);
+    }
+}
+
+/* ? ARTICLES */
+
+/* todo END animation */
