@@ -24,6 +24,7 @@ a{
     --padding-bottom:80px;
     --transperant-color:rgb(25 200 250 / 60%);
     --blue:#032f55;
+    --section-background: #ececec;
 }
 .container{
     margin-left: auto;
@@ -437,9 +438,220 @@ header .container .mega-menu .image img{
     transition: 0.4s;
     font-weight: bold;
 }
-
-
 /* ! END ARTICLES */
+
+/* ! START GALLERY */
+
+.gallery{
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    background-color: var(--section-background);
+}
+
+.gallery .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap:30px;
+}
+
+.gallery .card{
+    box-shadow: 0 2px 15px rgb(0 0 0 /10%);
+    padding: 15px;
+}
+
+.gallery .container .card .image{
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery .container .card .image::before{
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color:var(--section-background);
+    opacity:0;
+    transform: translate(-50% , -50%);
+    width: 0;
+    height: 0;
+    transition: 0.4s;
+}
+
+.gallery .container .card .image:hover::before{
+    animation: flashing 0.7s;
+}
+
+.gallery .container .card .image img:hover{
+    transform: rotate(5deg) scale(1.1);
+}
+
+.gallery img{
+    transition: 0.4s;
+    max-width: 100%;
+}
+/* ! END GALLERY */
+
+
+/* ! START FEATURES */
+
+.features{
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+}
+
+.features .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 40px;
+}
+
+.features .card{
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.features .image{
+    position: relative;
+    overflow: hidden;
+}
+
+.features .card:first-child .image::before{
+    content: "";
+    position: absolute;
+    background-color:#f43f3653;
+    width: 100%;
+    height: 100%;
+}
+.features .card:nth-child(2) .image::before{
+    content: "";
+    position: absolute;
+    background-color:#00968751;
+    width: 100%;
+    height: 100%;
+}
+.features .card:last-child .image::before{
+    content: "";
+    position: absolute;
+    background-color:#03a8f44a;
+    width: 100%;
+    height: 100%;
+}
+.features .card .image::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-style: solid;
+    border-color:transparent transparent white  transparent ;
+    border-width:0px 0px 170px 700px;
+    transition: 0.4s;
+}
+
+.features .card:hover .image::after{
+    border-width:0px 500px 170px 0px;
+}
+
+.features .image img{
+    max-width: 100%;
+}
+
+.features .info{
+    padding: 10px; 
+}
+
+.features .info h1{
+    position: relative;
+    font-size: 40px;
+    margin: auto;
+    width: fit-content;
+}
+
+.features .card:first-child .info h1::before{
+    content: "";
+    position: absolute;
+    width: calc(100% - 30px);
+    height: 5px;
+    bottom: -20px;
+    left: 15px;
+    background-color: #f44036;
+}
+
+.features .card:nth-child(2) .info h1::before{
+    content: "";
+    position: absolute;
+    width: calc(100% - 30px);
+    height: 5px;
+    bottom: -20px;
+    left: 15px;
+    background-color: #009688;
+}
+
+.features .card:last-child .info h1::before{
+    content: "";
+    position: absolute;
+    width: calc(100% - 30px);
+    height: 5px;
+    bottom: -20px;
+    left: 15px;
+    background-color: #03a9f4;
+}
+
+.features .card .info p{
+    color: #777;
+    line-height: 2;
+    font-size: 23px;
+    padding: 25px;
+}
+
+.features .card a{
+    display: block;
+    padding: 10px 30px;
+    width: fit-content;
+    margin: 0 auto 30px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px;
+    position: relative;
+}
+
+.features .card:first-child .link a{
+    border: #f44036 solid 3px;
+    color:  #f44036;
+    transition: 0.4s;
+    background: linear-gradient(to right,#f44036 50%,white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.features .card:nth-child(2) .link a{
+    border:  #009688 solid 3px;
+    color:   #009688;
+    transition: 0.4s;
+    background: linear-gradient(to right,#009688 50%,white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+.features .card:last-child .link a{
+    border: #03a9f4 solid 3px;
+    color: #03a9f4;
+    transition: 0.4s;
+    background: linear-gradient(to right,#03a9f4 50%,white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+
+
+.features .card:first-child:hover .link a,
+.features .card:nth-child(2):hover .link a,
+.features .card:last-child:hover .link a{
+    background-position: left bottom;
+    color: white ;
+}
+
+/* ! END FEATURES */
+
+
 
 /* todo START animation */
 
@@ -508,5 +720,20 @@ header .container .mega-menu .image img{
 }
 
 /* ? ARTICLES */
+
+/* ? GALLERY */
+
+@keyframes flashing{
+    0%, 40%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 200%;
+        height: 200%;
+    }
+}
+
+/* ? GALLERY */
 
 /* todo END animation */
