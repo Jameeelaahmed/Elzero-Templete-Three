@@ -651,7 +651,124 @@ header .container .mega-menu .image img{
 
 /* ! END FEATURES */
 
+/* ! START TESTIMONIALS */
+.testimonials{
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+    background-color: var(--section-background);
+}
 
+.testimonials .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.testimonials .card{
+    background-color: white;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 0 20px #ddd;
+    border-radius: 10px;
+}
+
+.testimonials img{
+    width: 90px;
+    border-radius: 50%;
+    border-color: var(--section-background);
+    border-style: solid;
+    border-width: 10px;
+    right: -10px;
+    top: -35px;
+    position: absolute;
+
+}
+
+.testimonials .card h4{
+    color: var(--maincolor);
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+}
+
+.testimonials .card span{
+    display: block;
+    font-size: 14px;
+    color: #777;
+    letter-spacing: 1px;
+    margin: 0 0 10px;
+}
+
+.testimonials .card .filled{
+    color: #ffc107;
+    margin-bottom: 10px;
+}
+
+.testimonials .card p{
+    line-height: 1.8;
+}
+
+/* ! END TESTIMONIALS */
+
+/* ! START TEAM-MEMBER */
+.team-member{
+    padding-top: var(--padding-top);
+    padding-bottom: var(--padding-bottom);
+}
+
+.team-member .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    gap: 40px;
+}
+
+.team-member .section{
+    display: flex;
+}
+
+.team-member .card{
+    position: relative;
+}
+
+.team-member .card::beforeو
+.team-member .card::after{
+    content: "";
+    position: absolute;
+    height: calc(100% + 20px);
+    background-color: #f3f3f3;
+    border-radius: 10px;
+    right: 0;
+    top: 0;
+}
+
+.team-member .card::before{
+    width:calc(100% - 60px);
+    z-index: -1;
+}
+
+.team-member .card::after{
+    z-index: -2;
+    background-color: red;
+    width: 0;
+}
+
+.team-member .icon{
+    margin-left: 10px;
+}
+
+.team-member img{
+    width:290px;
+    border-radius:10px; 
+}
+
+.team-member .card .icon a{
+    color: #777;
+}
+
+.team-member .card i{
+    display: block;
+    padding: 10px;
+}
+/* ! END TEAM-MEMBER */
 
 /* todo START animation */
 
