@@ -100,6 +100,39 @@ a{
     right:-30px;
 }
 
+.spikes{
+    position: relative;
+}
+
+.spikes::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #0075ab;
+    z-index: 1;
+    background:linear-gradient(135deg,white 25%, transparent 25%),linear-gradient(225deg,white 25%, transparent 25%);
+    background-size: 30px 30px;
+}
+
+/* .dots{
+    background-image: url(../imgs/dots.png);
+    height: 186px;
+    width: 204px;
+    background-repeat:no-repeat;
+    position: absolute;
+}
+
+.dots-up{
+    top: 200px;
+    right: 0;
+}
+
+.dots-bottom{
+    bottom: 200px;
+    left: 0;
+} */
 /* ! END Global Rules */
 
 /* ! START HEADER */
@@ -1511,9 +1544,10 @@ header .container .mega-menu .image img{
 /* ! START DISCOUNT */
 
 .discount{
-    min-width: 100vh;
+    min-width: 100%;
     display: flex;
     flex-wrap: wrap;
+    padding-bottom: 50px;
 }
 
 .discount .have{
@@ -1537,6 +1571,8 @@ header .container .mega-menu .image img{
 .discount .have::before{
     content: "";
     position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     background-color: rgb(23 135 224 / 98%);
@@ -1550,13 +1586,14 @@ header .container .mega-menu .image img{
 
 .discount .content h1{
     font-size: 40px;
-    letter-spacing: -2;   
+    letter-spacing: -2;
+    max-width: 100%;   
 }
 
 .discount .content p{
     line-height: 1.6;
     font-size: 15px;
-    max-width: 500px;
+    max-width: 100%;
 }
 
 .discount .content img{
@@ -1584,7 +1621,7 @@ header .container .mega-menu .image img{
     width: 100%;
     border: none;
     border-bottom: solid 1px #ddd;
-    padding: 15px 0 15px 10px;
+    padding: 15px;
     margin-bottom: 10px;
     background-color: var(--section-background);
     caret-color: var(--maincolor);
@@ -1641,7 +1678,14 @@ header .container .mega-menu .image img{
 footer{
     background-color: #191919;
     color: white;
-    padding-top: var(--padding-top);
+    padding: var(--padding-top) 0 0 ;
+
+}
+
+@media(max-width:768px){
+    footer{
+        text-align: center;
+    }
 }
 
 footer .container{
@@ -1653,12 +1697,19 @@ footer .container{
 footer .section h1{
     font-size: 50px;
     margin: 0 0 20px;
+    font-weight: bold;
 }
 
 footer .section .social{
     display: flex;
     color: #ddd;
 } 
+
+@media(max-width:768px){
+    footer .section .social{
+        justify-content: center;
+    }
+}
 
 footer .section .social li {
     margin-right: 10px;
@@ -1686,36 +1737,80 @@ footer .section .social .youtube:hover {
     background-color: #ff0000;
 }
 
-footer .section p{
+footer .section .text{
     margin-top: 10px;
     font-size: 16px;
     line-height: 1.6;
-    color: #ddd;
+    color: #b9b9b9;
 }
 
 footer .links li{
-    padding: 20px 0;
+    padding: 15px 0;
     transition: 0.4s;
     color: #ddd;
-    position: relative;
 }
 
 footer .links li:not(:last-child){
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #444;
 }
 
-footer .links li::before{
+footer .links li:hover{
+    padding-left: 10px;
+}
+
+footer .links li a{
+    color: #b9b9b9;
+    transition: 0.4s;
+}
+
+footer .links li a:hover{
+    color: white;
+}
+
+footer .links li a::before{
     font-family: "Font Awesome 5 Free";
     content: "\F101";
-    position: absolute;
-    top: 0;
-    left: 0;
     font-weight: 900;
     color: var(--maincolor);
+    margin-right: 10px;
+    /* display: block; */
+}
+
+footer .section .line{
+    display: flex;
+    align-items: center;
+    margin: 15px;
+    color: #b9b9b9;
+}
+
+footer .section .line i{
+    font-size: 25px;
+    color: var(--maincolor);
+    margin-right:10px;
+}
+
+footer .section .line .info{
+    line-height: 1.8;
+    flex: 1;
+}
+
+footer .section .line .info span{
     display: block;
 }
 
+footer .section img{
+    width: 78px;
+    border: 3px solid white;
+    margin: 3px;
+}
 
+footer .copyright{
+    padding: 25px 0;
+    text-align: center;
+    color: white;
+    margin: 50px 0 0 ;
+    border-top: 1px solid #444;
+}
 /* ! END FOOTER */
 
 /* todo START animation */
